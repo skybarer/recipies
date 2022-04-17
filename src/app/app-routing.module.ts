@@ -8,6 +8,7 @@ import { UserDashboardComponent } from './user/user-dashboard/user-dashboard.com
 import { UserLoginComponent } from './user/user-login/user-login.component';
 import { UserRegisterComponent } from './user/user-register/user-register.component';
 import { AdminRecipeCrudComponent } from './admin/admin-recipe-crud/admin-recipe-crud.component';
+import { UserRecipeDetailComponent } from './user/user-recipe-detail/user-recipe-detail.component';
 
 
 const routes: Routes = [
@@ -17,6 +18,7 @@ const routes: Routes = [
 
   { path: 'userdash', component: UserDashboardComponent },
   { path: 'userbklst', component: UserBooklistComponent },
+  { path: 'userdetails/:id', component: UserRecipeDetailComponent },
 
   { path: 'adminlogin', component: AdminLoginComponent },
   { path: 'admindash', component: AdminDashboardComponent },

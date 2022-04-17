@@ -36,6 +36,11 @@ export class AdminRecipeCrudService {
         return this.http.get<any>(this.ADMIN_LOGIN_URL + 'category/' + category);
     }
 
+    searchRecipeByid(id: number): Observable<any> {
+        return this.http.get<any>(this.ADMIN_LOGIN_URL + 'id/' + id);
+    }
+
+
 
 
 }

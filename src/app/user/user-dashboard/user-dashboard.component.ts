@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AdminRecipeCrudService } from './../../admin/admin-recipe-crud/admin-recipe-crud.service';
 import { FormGroup, FormBuilder } from '@angular/forms';
+import { Recipe } from 'src/app/Models/recipies';
 
 @Component({
   selector: 'app-user-dashboard',
@@ -42,5 +43,10 @@ export class UserDashboardComponent implements OnInit {
         }
       }
     )
+  }
+
+  recipeDetails(recipe: Recipe) {
+    console.log(recipe);
+    this.router.navigateByUrl("userdetails/"+ recipe.id);
   }
 }

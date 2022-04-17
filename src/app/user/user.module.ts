@@ -7,6 +7,7 @@ import { UserBooklistComponent } from './user-booklist/user-booklist.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { UserRecipeDetailComponent } from './user-recipe-detail/user-recipe-detail.component';
 
 
 
@@ -16,6 +17,7 @@ import { HttpClientModule } from '@angular/common/http';
     UserRegisterComponent,
     UserDashboardComponent,
     UserBooklistComponent,
+    UserRecipeDetailComponent
    
   ],
   imports: [
