@@ -7,6 +7,8 @@ import { UserBooklistComponent } from './user/user-booklist/user-booklist.compon
 import { UserDashboardComponent } from './user/user-dashboard/user-dashboard.component';
 import { UserLoginComponent } from './user/user-login/user-login.component';
 import { UserRegisterComponent } from './user/user-register/user-register.component';
+import { AdminRecipeCrudComponent } from './admin/admin-recipe-crud/admin-recipe-crud.component';
+
 
 const routes: Routes = [
   {path:'', component: HomepageComponent},
@@ -15,11 +17,12 @@ const routes: Routes = [
   {path:'adminlogin', component: AdminLoginComponent},
   {path:'admindash', component: AdminDashboardComponent},
   {path:'userdash', component: UserDashboardComponent},
-  {path:'userbklst', component: UserBooklistComponent}
+  {path:'userbklst', component: UserBooklistComponent},
+  {path:'admincrud', component: AdminRecipeCrudComponent}
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+exports: [RouterModule]
 })
 export class AppRoutingModule { }
