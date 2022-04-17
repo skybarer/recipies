@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AdminRecipeCrudService } from './../../admin/admin-recipe-crud/admin-recipe-crud.service';
+import { FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-user-dashboard',
@@ -8,12 +10,37 @@ import { Router } from '@angular/router';
 })
 export class UserDashboardComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  searchRecipeGroup: FormGroup;
+  recipeList: any;
+  constructor(
+    private formBuilder: FormBuilder,
+    private adminRecipeCrudService: AdminRecipeCrudService,
+    private router: Router) { }
 
   ngOnInit(): void {
+    this.adminRecipeCrudService.getRecipeList().subscribe(
+      response => {
+        this.recipeList = response;
+        console.log(response);
+      }
+    );
+
+    this.searchRecipeGroup = this.formBuilder.group({
+      searchByCategory: [''],
+    });
   }
 
-  onNav(){
+  onNav() {
     this.router.navigate(['/userbklst']);
+  }
+
+  onSearchByCat() {
+    this.adminRecipeCrudService.searchByCategory(this.searchRecipeGroup.value['searchByCategory']).subscribe(
+      response => {
+        if (response) {
+          this.recipeList = response;
+        }
+      }
+    )
   }
 }

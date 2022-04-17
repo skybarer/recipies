@@ -11,18 +11,21 @@ import { AdminRecipeCrudComponent } from './admin/admin-recipe-crud/admin-recipe
 
 
 const routes: Routes = [
-  {path:'', component: HomepageComponent},
-  {path:'userlogin', component: UserLoginComponent},
-  {path:'userreg', component: UserRegisterComponent},
-  {path:'adminlogin', component: AdminLoginComponent},
-  {path:'admindash', component: AdminDashboardComponent},
-  {path:'userdash', component: UserDashboardComponent},
-  {path:'userbklst', component: UserBooklistComponent},
-  {path:'admincrud', component: AdminRecipeCrudComponent}
+  { path: '', component: HomepageComponent },
+  { path: 'userlogin', component: UserLoginComponent },
+  { path: 'userreg', component: UserRegisterComponent },
+
+  { path: 'userdash', component: UserDashboardComponent },
+  { path: 'userbklst', component: UserBooklistComponent },
+
+  { path: 'adminlogin', component: AdminLoginComponent },
+  { path: 'admindash', component: AdminDashboardComponent },
+  { path: 'admincrud', component: AdminRecipeCrudComponent },
+
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-exports: [RouterModule]
+  exports: [RouterModule]
 })
 export class AppRoutingModule { }

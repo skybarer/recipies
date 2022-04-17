@@ -28,6 +28,14 @@ export class AdminRecipeCrudService {
         return this.http.delete<Recipe>(this.ADMIN_LOGIN_URL + 'productIdDelete/' + recipie.id);
     }
 
+    udpateRecipe(recipe: Recipe): Observable<Recipe> {
+        return this.http.put<Recipe>(this.ADMIN_LOGIN_URL + 'productIdUpdate/' + recipe.id, recipe);
+    }
+
+    searchByCategory(category: string): Observable<any> {
+        return this.http.get<any>(this.ADMIN_LOGIN_URL + 'category/' + category);
+    }
+
 
 
 }

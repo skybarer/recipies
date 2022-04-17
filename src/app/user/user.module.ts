@@ -4,6 +4,9 @@ import { UserLoginComponent } from './user-login/user-login.component';
 import { UserRegisterComponent } from './user-register/user-register.component';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 import { UserBooklistComponent } from './user-booklist/user-booklist.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -16,7 +19,11 @@ import { UserBooklistComponent } from './user-booklist/user-booklist.component';
    
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    RouterModule
   ]
 })
 export class UserModule { }

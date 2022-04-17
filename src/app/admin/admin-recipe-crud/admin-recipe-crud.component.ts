@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AdminRecipeCrudService } from './admin-recipe-crud.service';
 import { Recipe } from 'src/app/Models/recipies';
 import { Router } from '@angular/router';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-admin-recipe-crud',
@@ -11,8 +12,10 @@ import { Router } from '@angular/router';
 export class AdminRecipeCrudComponent implements OnInit {
 
   recipeList: any;
+  editAdminFormGroup: FormGroup;
 
   constructor(
+    private formBuilder: FormBuilder,
     private adminRecipeCrudService: AdminRecipeCrudService,
     private router: Router
   ) { }
@@ -24,6 +27,18 @@ export class AdminRecipeCrudComponent implements OnInit {
         console.log(response);
       }
     )
+
+    this.editAdminFormGroup = this.formBuilder.group(
+      {
+        id: [null, { 'disabled': true }],
+        name: [''],
+        category: [''],
+        ingrediants: [''],
+        cookingSteps: [''],
+        imgurl: [''],
+      }
+    );
+    // this.editAdminFormGroup.get('id')?.disable();
   }
 
   deleteByid(recipe: Recipe) {
@@ -33,6 +48,19 @@ export class AdminRecipeCrudComponent implements OnInit {
         this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
           this.router.navigate(['admincrud']);
         });
+      }
+    )
+  }
+
+
+  updateRecipeModal(recipe: Recipe) {
+    this.editAdminFormGroup.patchValue(recipe);
+  }
+
+  updateRecipe() {
+    this.adminRecipeCrudService.udpateRecipe(this.editAdminFormGroup.value).subscribe(
+      response => {
+        alert("recipe updated successfully.");
       }
     )
   }

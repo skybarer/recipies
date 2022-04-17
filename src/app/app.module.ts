@@ -10,14 +10,14 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { AdminModule } from './admin/admin.module';
 import { AdminLoginService } from './admin/admin-login/admin-login.service';
 import { AdminRecipeCrudService } from './admin/admin-recipe-crud/admin-recipe-crud.service';
+import { UserLoginService } from './user/user-login/user-login.service';
+import { UserRegisterService } from './user/user-register/user-register.service';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomepageComponent,
-
-
   ],
   imports: [
     BrowserModule,
@@ -31,7 +31,9 @@ import { AdminRecipeCrudService } from './admin/admin-recipe-crud/admin-recipe-c
   ],
   providers: [
     AdminLoginService,
-    AdminRecipeCrudService
+    AdminRecipeCrudService,
+    UserLoginService,
+    UserRegisterService
   ],
   bootstrap: [AppComponent]
 })

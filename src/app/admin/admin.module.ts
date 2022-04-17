@@ -6,6 +6,7 @@ import { AdminhomeComponent } from './adminhome/adminhome.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AdminRecipeCrudComponent } from './admin-recipe-crud/admin-recipe-crud.component';
+import { RouterModule, Routes } from '@angular/router';
 
 
 
@@ -22,7 +23,8 @@ import { AdminRecipeCrudComponent } from './admin-recipe-crud/admin-recipe-crud.
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule
   ]
 })
 export class AdminModule { }
