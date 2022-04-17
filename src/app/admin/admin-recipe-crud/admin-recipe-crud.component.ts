@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AdminRecipeCrudService } from './admin-recipe-crud.service';
 import { Recipe } from 'src/app/Models/recipies';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-recipe-crud',
@@ -9,10 +10,11 @@ import { Recipe } from 'src/app/Models/recipies';
 })
 export class AdminRecipeCrudComponent implements OnInit {
 
-   recipeList : any;
+  recipeList: any;
 
   constructor(
-    private adminRecipeCrudService : AdminRecipeCrudService
+    private adminRecipeCrudService: AdminRecipeCrudService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -20,6 +22,17 @@ export class AdminRecipeCrudComponent implements OnInit {
       response => {
         this.recipeList = response;
         console.log(response);
+      }
+    )
+  }
+
+  deleteByid(recipe: Recipe) {
+    this.adminRecipeCrudService.deleteById(recipe).subscribe(
+      response => {
+        //  this.router.navigateByUrl("admincrud");
+        this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+          this.router.navigate(['admincrud']);
+        });
       }
     )
   }

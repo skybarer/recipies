@@ -1,6 +1,4 @@
-<!-- <p>admin-recipe-crud works!</p> -->
-<!-- {{recipeList | json}} -->
-<div class="container">
+<!-- <div class="container">
     <div class="row">
         <div *ngFor="let recipe of recipeList; let i = index" class="card" style="width: 18rem;margin-left: auto;
         margin-right: auto; margin-bottom: 30px;">
@@ -12,4 +10,33 @@
             </div>
         </div>
     </div>
+</div> -->
+
+<div class="container">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">#id</th>
+                <th scope="col">imgurl</th>
+                <th scope="col">name</th>
+                <th scope="col">category</th>
+                <th scope="col">action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let recipe of recipeList; let i = index">
+                <th scope="row">{{recipe?.id}}</th>
+                <td>
+                    <img width="40" src={{recipe.imgurl}} alt="Card image cap">
+                </td>
+                <td>{{recipe?.name}}</td>
+                <td>@{{recipe?.category}}</td>
+                <td>
+                    <button class="btn btn-sm btn-warning">Edit</button>&nbsp;&nbsp;&nbsp;
+                    <button class="btn btn-sm btn-danger"
+                        (click)="deleteByid(recipe)">Delete</button>&nbsp;&nbsp;&nbsp;
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </div>

@@ -16,12 +16,16 @@ export class AdminRecipeCrudService {
     ADMIN_LOGIN_URL = 'http://localhost:8080/api/product/';
 
     // get all client details
-    addRecipeList(recipie: Recipe): Observable<any> {
+    addRecipeList(recipie: Recipe): Observable<Recipe> {
         return this.http.post<Recipe>(this.ADMIN_LOGIN_URL + 'add', recipie);
     }
 
     getRecipeList(): Observable<any> {
         return this.http.get<any>(this.ADMIN_LOGIN_URL + 'list');
+    }
+
+    deleteById(recipie: Recipe): Observable<Recipe> {
+        return this.http.delete<Recipe>(this.ADMIN_LOGIN_URL + 'productIdDelete/' + recipie.id);
     }
 
 
